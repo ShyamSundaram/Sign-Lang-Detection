@@ -58,6 +58,7 @@ class Data:
 # model.save('action.h5')
 
 # data=Data()
+# data.load_data()
 # model=create_model()
 # data.load_data()
 # trained=data.train(model,100)
