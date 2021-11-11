@@ -11,7 +11,7 @@ mp_drawing=mp.solutions.drawing_utils
 
 sequence=[]
 sentence=[]
-thresh=0.5
+thresh=0.8
 actions=[]
 for i in range(97,123):
     actions.append(chr(i))
@@ -19,7 +19,7 @@ for i in range(97,123):
 cap=cv2.VideoCapture(0)
 
 model=create_model()
-model.load_weights('action.h5')
+model.load_weights('action3.h5')
 res=np.array([2.9485551e-20,8.7930697e-18,4.4212179e-16,3.8555774e-24,4.7811854e-32
 ,3.9088125e-11,6.2194567e-37,4.1775081e-21,1.1696461e-07,9.9999988e-01
 ,4.5697821e-24,2.0483630e-15,5.7101654e-12,4.6459605e-17,2.9196457e-08
@@ -44,7 +44,7 @@ with mp_holistic.Holistic(min_detection_confidence=0.5,min_tracking_confidence=0
             print(actions[np.argmax(res)])
         else:
             continue
-
+        print(res[np.argmax(res)])
         if res[np.argmax(res)]>thresh:
             if(len(sentence) > 0):
                 if actions[np.argmax(res)]!=sentence[-1]:

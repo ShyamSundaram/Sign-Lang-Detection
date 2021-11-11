@@ -31,7 +31,7 @@ def extract_keypoints(results):
     return np.concatenate([lh,rh])
 
 def collect_data():
-    DATA_PATH=os.path.join('MP_DATA')
+    DATA_PATH=os.path.join('MP_DATA2')
     actions=[]
     for i in range(97,123):
         actions.append(chr(i))
@@ -48,7 +48,7 @@ def collect_data():
     cap=cv2.VideoCapture(0)
 
     with mp_holistic.Holistic(min_detection_confidence=0.5,min_tracking_confidence=0.5) as holistic:
-        for action in actions[23:26]:
+        for action in actions[0:4]:
             for sequence in range(no_sequences):
                 for frame_num in range(sequence_length):
 
