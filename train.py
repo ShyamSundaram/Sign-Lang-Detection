@@ -48,7 +48,11 @@ class Data:
     def train(self,model,epochs=300):
         log_dir=os.path.join('Logs')
         tb_callback=TensorBoard(log_dir=log_dir)
-        model.fit(self.X_train,self.y_train,epochs=epochs,callbacks=[tb_callback])
+        X_val=self.X_train[-50:]
+        y_val=self.y_train[-50:]
+        X_train=self.X_train[:-50]
+        y_train=self.y_train[:-50]
+        model.fit(X_train,y_train,epochs=epochs,validation_data=(X_val,y_val), callbacks=[tb_callback])
         return model
 
         #model.save('action.h5')
