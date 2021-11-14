@@ -21,7 +21,7 @@ mp_drawing=mp.solutions.drawing_utils
 
 class Data:
     def __init__(self):
-        self.DATA_PATH=os.path.join('MP_DATA')
+        self.DATA_PATH=os.path.join('train-data')
         self.actions=[]
         for i in range(97,123):
             self.actions.append(chr(i))
